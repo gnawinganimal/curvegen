@@ -1,4 +1,4 @@
-use crate::{curve::Curve, vec::Vec2};
+use crate::{curves::Curve, vec::Vec2};
 
 pub struct Bezier { 
     pub p0: Vec2,
@@ -18,7 +18,7 @@ impl Curve for Bezier {
 
 #[cfg(test)]
 mod tests {
-    use crate::{curve::Curve, vec::Vec2};
+    use crate::{curves::Curve, vec::Vec2};
     use super::Bezier;
 
     #[test]

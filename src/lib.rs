@@ -1,3 +1,3 @@
 
 pub mod vec;
-pub mod curve;
+pub mod curves;

@@ -1,5 +1,5 @@
 
-use crate::{curve::Curve, vec::Vec2};
+use crate::{curves::Curve, vec::Vec2};
 
 pub struct Hermite { 
     pub p0: Vec2,
@@ -19,7 +19,7 @@ impl Curve for Hermite {
 
 #[cfg(test)]
 mod tests {
-    use crate::{curve::Curve, vec::Vec2};
+    use crate::{curves::Curve, vec::Vec2};
     use super::Hermite;
 
     #[test]
