@@ -1,5 +1,6 @@
 
-use crate::{curves::Curve, vec::Vec2};
+use crate::curves::Curve;
+use glam::Vec2;
 
 use super::bezier::Bezier;
 
@@ -32,18 +33,19 @@ impl From<&Bezier> for Hermite {
 
 #[cfg(test)]
 mod tests {
-    use approx::assert_ulps_eq;
-
-    use crate::{curves::{bezier::Bezier, Curve}, vec::Vec2};
+    use crate::curves::{bezier::Bezier, Curve};
     use super::Hermite;
+    use glam::vec2;
+
+    use approx::assert_ulps_eq;
 
     #[test]
     fn endpoints_are_correct() {
         let c = Hermite {
-            p0: Vec2(0.0, 0.0),
-            p1: Vec2(4.0, 1.0),
-            v0: Vec2(1.0, 1.0),
-            v1: Vec2(1.0, -1.0)
+            p0: vec2(0.0, 0.0),
+            p1: vec2(4.0, 1.0),
+            v0: vec2(1.0, 1.0),
+            v1: vec2(1.0, -1.0)
         };
 
         assert_eq!(c.get(0.0), c.p0);
@@ -53,10 +55,10 @@ mod tests {
     #[test]
     pub fn converts_endpoints_from_hermite() {
         let b = Bezier {
-            p0: Vec2(1.0, 1.0),
-            p1: Vec2(5.0, 4.0),
-            p2: Vec2(3.0, 5.5),
-            p3: Vec2(4.0, 1.0),
+            p0: vec2(1.0, 1.0),
+            p1: vec2(5.0, 4.0),
+            p2: vec2(3.0, 5.5),
+            p3: vec2(4.0, 1.0),
         };
 
         let h = Hermite::from(&b);
@@ -68,10 +70,10 @@ mod tests {
     #[test]
     pub fn converts_hermite_to_bezier() {
         let b = Bezier {
-            p0: Vec2(1.0, 1.0),
-            p1: Vec2(5.0, 4.0),
-            p2: Vec2(3.0, 5.5),
-            p3: Vec2(4.0, 1.0),
+            p0: vec2(1.0, 1.0),
+            p1: vec2(5.0, 4.0),
+            p2: vec2(3.0, 5.5),
+            p3: vec2(4.0, 1.0),
         };
 
         let h = Hermite::from(&b);

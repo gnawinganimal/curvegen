@@ -1,4 +1,5 @@
-use crate::{vec::Vec2, curves::Curve};
+use crate::curves::Curve;
+use glam::Vec2;
 
 pub struct Steps<'a, C: Curve> {
     curve: &'a C,
@@ -32,15 +33,16 @@ impl<'a, C: Curve> Iterator for Steps<'a, C> {
 
 #[cfg(test)]
 mod tests {
-    use crate::{curves::{bezier::Bezier, Curve}, vec::Vec2};
+    use crate::curves::{bezier::Bezier, Curve};
+    use glam::{vec2, Vec2};
 
     #[test]
     fn steps_produces_correct_number_of_points() {
         let c = Bezier {
-            p0: Vec2(1.0, 1.0),
-            p1: Vec2(5.0, 4.0),
-            p2: Vec2(3.0, 5.5),
-            p3: Vec2(4.0, 1.0),
+            p0: vec2(1.0, 1.0),
+            p1: vec2(5.0, 4.0),
+            p2: vec2(3.0, 5.5),
+            p3: vec2(4.0, 1.0),
         };
 
         let p: Vec<Vec2> = c.steps(10).collect();
@@ -50,14 +52,14 @@ mod tests {
     #[test]
     fn steps_endpoints_are_correct() {
         let c = Bezier {
-            p0: Vec2(1.0, 1.0),
-            p1: Vec2(5.0, 4.0),
-            p2: Vec2(3.0, 5.5),
-            p3: Vec2(4.0, 1.0),
+            p0: vec2(1.0, 1.0),
+            p1: vec2(5.0, 4.0),
+            p2: vec2(3.0, 5.5),
+            p3: vec2(4.0, 1.0),
         };
 
         let p: Vec<Vec2> = c.steps(10).collect();
-        assert_eq!(p[0], Vec2(1.0, 1.0));
-        assert_eq!(p[9], Vec2(4.0, 1.0));
+        assert_eq!(p[0], vec2(1.0, 1.0));
+        assert_eq!(p[9], vec2(4.0, 1.0));
     }
 }

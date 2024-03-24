@@ -1,4 +1,5 @@
-use crate::{vec::Vec2, curves::steps::Steps};
+use crate::curves::steps::Steps;
+use glam::Vec2;
 
 pub trait Curve {
     fn get(&self, t: f32) -> Vec2;

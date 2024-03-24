@@ -92,6 +92,7 @@ version = "0.1.0"
 dependencies = [
  "approx",
  "assert_float_eq",
+ "glam",
  "resvg",
  "svg",
 ]
@@ -158,6 +159,15 @@ checksum = "80792593675e051cf94a4b111980da2ba60d4a83e43e0048c5693baab3977045"
 dependencies = [
  "color_quant",
  "weezl",
+]
+
+[[package]]
+name = "glam"
+version = "0.27.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9e05e7e6723e3455f4818c7b26e855439f7546cf617ef669d1adedb8669e5cb9"
+dependencies = [
+ "approx",
 ]
 
 [[package]]
